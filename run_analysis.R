@@ -38,7 +38,7 @@ run_analysis<-function(){
         names(activitylabels)<-c("activity","descriptionofactivity")
         
         #update activity to remove underscores
-        activitylabels<-mutate(activitylabels,description=gsub("_"," ",description))
+        activitylabels<-mutate(activitylabels,descriptionofactivity=gsub("_"," ",descriptionofactivity))
         
         #join activities
         testactivity<-left_join(testactivity,activitylabels,by="activity")
@@ -68,6 +68,6 @@ run_analysis<-function(){
         summarytable<-dcast(summarymelt,subject+descriptionofactivity~variable,mean)
         
         #write table
-        write.table(summarytable,file="summarytable.txt", sep=" ",col.names=TRUE)
+        write.table(summarytable,file="summarytable.txt", sep=" ",col.names=TRUE,row.names = FALSE)
         
 }
