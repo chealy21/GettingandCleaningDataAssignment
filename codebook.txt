@@ -1,0 +1,99 @@
+Introduction to data:
+===================================================
+This data set is derived from experiments conducted on 30 voluneers aged between 19-48 years while they conducted six different daily activities (walking, walking upstairs, walking downstairs, sitting, standing, laying) wearing a Samsung Galaxy S II smartphone.
+Measurements of linear acceleration in the x, y, and z direction and angular velocity in the x, y, and z direction were captured at a constant rate of 50Hz. The dataset was randomly partitioned into test and training sections with 30% assigned to test and the remaining 70% assigned to the train set.
+
+Pre-processing
+===================================================
+- A noice filter was applied to the accelerometer and gyroscope signals and the resulting signals were sampled in fixed width sliding windows of 2.56 sec with 50% overlap.
+- The acceleration signal was split into gravitational and body motion components using a Butterworth low-pass filter. A filter of 0.3Hz was applied to the gravitational component. 
+
+Processing techniques:
+===================================================
+- subset mean and std columns
+- join test and train data sets
+- summarized the data by taking the mean of each variable for subject and descriptionofactivity
+
+Data Variables
+===================================================
+       subject: int  {integers 1 through 30}
+       descriptionofactivity: chr {WALKING, WALKING UPSTAIRS, WALKING DOWNSTAIRS, SITTTING, STANDING, LAYING}
+       tBodyAcc-mean()-X: num
+       tBodyAcc-mean()-Y: num
+       tBodyAcc-mean()-Z: num  
+       tBodyAcc-std()-X: num
+       tBodyAcc-std()-Y: num
+       tBodyAcc-std()-Z: num
+       tGravityAcc-mean()-X: num
+       tGravityAcc-mean()-Y: num
+       tGravityAcc-mean()-Z: num
+       tGravityAcc-std()-X: num
+       tGravityAcc-std()-Y: num
+       tGravityAcc-std()-Z: num
+       tBodyAccJerk-mean()-X: num
+       tBodyAccJerk-mean()-Y: num
+       tBodyAccJerk-mean()-Z: num
+       tBodyAccJerk-std()-X: num
+       tBodyAccJerk-std()-Y: num
+       tBodyAccJerk-std()-Z: num
+       tBodyGyro-mean()-X: num
+       tBodyGyro-mean()-Y: num
+       tBodyGyro-mean()-Z: num
+       tBodyGyro-std()-X: num
+       tBodyGyro-std()-Y: num  
+       tBodyGyro-std()-Z: num 
+       tBodyGyroJerk-mean()-X: num
+       tBodyGyroJerk-mean()-Y: num
+       tBodyGyroJerk-mean()-Z: num
+       tBodyGyroJerk-std()-X: num
+       tBodyGyroJerk-std()-Y: num
+       tBodyGyroJerk-std()-Z: num
+       tBodyAccMag-mean(): num
+       tBodyAccMag-std(): num
+       tGravityAccMag-mean(): num
+       tGravityAccMag-std(): num
+       tBodyAccJerkMag-mean(): num
+       tBodyAccJerkMag-std(): num
+       tBodyGyroMag-mean(): num
+       tBodyGyroMag-std(): num
+       tBodyGyroJerkMag-mean(): num
+       tBodyGyroJerkMag-std(): num
+       fBodyAcc-mean()-X: num
+       fBodyAcc-mean()-Y: num
+       fBodyAcc-mean()-Z: num
+       fBodyAcc-std()-X: num
+       fBodyAcc-std()-Y: num
+       fBodyAcc-std()-Z: num
+       fBodyAcc-meanFreq()-X: num
+       fBodyAcc-meanFreq()-Y: num
+       fBodyAcc-meanFreq()-Z: num
+       fBodyAccJerk-mean()-X: num
+       fBodyAccJerk-mean()-Y: num
+       fBodyAccJerk-mean()-Z: num
+       fBodyAccJerk-std()-X: num
+       fBodyAccJerk-std()-Y: num
+       fBodyAccJerk-std()-Z: num
+       fBodyAccJerk-meanFreq()-X: num
+       fBodyAccJerk-meanFreq()-Y: num
+       fBodyAccJerk-meanFreq()-Z: num
+       fBodyGyro-mean()-X: num
+       fBodyGyro-mean()-Y: num
+       fBodyGyro-mean()-Z: num
+       fBodyGyro-std()-X: num
+       fBodyGyro-std()-Y: num
+       fBodyGyro-std()-Z : num  -0.917 -0.944 -0.982 -0.437 -0.238 ...
+       fBodyGyro-meanFreq()-X : num  -0.00355 0.18915 -0.12029 0.01478 -0.10045 ...
+       fBodyGyro-meanFreq()-Y : num  -0.0915 0.0631 -0.0447 -0.0658 0.0826 ...
+       fBodyGyro-meanFreq()-Z : num  0.010458 -0.029784 0.100608 0.000773 -0.075676 ...
+       fBodyAccMag-mean()     : num  -0.8618 -0.9478 -0.9854 -0.1286 0.0966 ...
+       fBodyAccMag-std() : num  -0.798 -0.928 -0.982 -0.398 -0.187 ...
+       fBodyAccMag-meanFreq() : num  0.0864 0.2367 0.2846 0.1906 0.1192 ...
+       fBodyBodyAccJerkMag-mean()     : num  -0.9333 -0.9853 -0.9925 -0.0571 0.0262 ...
+       fBodyBodyAccJerkMag-std()      : num  -0.922 -0.982 -0.993 -0.103 -0.104 ...
+       fBodyBodyAccJerkMag-meanFreq() : num  0.2664 0.3519 0.4222 0.0938 0.0765 ...
+       fBodyBodyGyroMag-mean()        : num  -0.862 -0.958 -0.985 -0.199 -0.186 ...
+       fBodyBodyGyroMag-std() : num  -0.824 -0.932 -0.978 -0.321 -0.398 ...
+       fBodyBodyGyroMag-meanFreq()    : num  -0.139775 -0.000262 -0.028606 0.268844 0.349614 ...
+       fBodyBodyGyroJerkMag-mean()    : num  -0.942 -0.99 -0.995 -0.319 -0.282 ...
+       fBodyBodyGyroJerkMag-std()     : num  -0.933 -0.987 -0.995 -0.382 -0.392 ...
+       fBodyBodyGyroJerkMag-meanFreq(): num  0.176 0.185 0.334 0.191 0.19 ...
