@@ -17,6 +17,11 @@ run_analysis<-function(){
         trainsubjects<-read.table("./UCI HAR Dataset/train/subject_train.txt")
         traindata<-read.table("./UCI HAR Dataset/train/X_train.txt")
         trainactivity<-read.table("./UCI HAR Dataset/train/y_train.txt")
+
+        
+        # rename variable labels
+        featurelabels<-featurelabels %>% mutate(V2=gsub("tBodyAcc","timebodyacceleration",V2)) %>% mutate(V2=gsub("\\()","",V2)) %>% mutate(V2=gsub("tGravityAcc","timegravityacceleration",V2))%>% mutate(V2=gsub("tBodyGyro","timebodygyroscope",V2)) %>% mutate(V2=gsub("fBodyAcc","frequencybodyacceleration",V2))
+        featurelabels<-mutate(featurelabels,V2=tolower(V2))
         
         #apply features as column names
         names(testdata)<-featurelabels[,2]
@@ -52,8 +57,12 @@ run_analysis<-function(){
         #rbind test and train
         summarydata<-rbind(testdf,traindf)
         
+        #remove extra column
+        drops<-"activity"
+        summarydata<-summarydata[,!(names(summarydata) %in% drops)]
+        
         #melt
-        summarymelt<-melt(summarydata,id=c("subject","activity","descriptionofactivity"))
+        summarymelt<-melt(summarydata,id=c("subject","descriptionofactivity"))
         
         #dcast to get mean by activity and subject
         summarytable<-dcast(summarymelt,subject+descriptionofactivity~variable,mean)

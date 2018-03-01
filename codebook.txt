@@ -1,4 +1,4 @@
-Introduction to data:
+Study Design
 ===================================================
 This data set is derived from experiments conducted on 30 voluneers aged between 19-48 years while they conducted six different daily activities (walking, walking upstairs, walking downstairs, sitting, standing, laying) wearing a Samsung Galaxy S II smartphone.
 Measurements of linear acceleration in the x, y, and z direction and angular velocity in the x, y, and z direction were captured at a constant rate of 50Hz. The dataset was randomly partitioned into test and training sections with 30% assigned to test and the remaining 70% assigned to the train set.
@@ -10,7 +10,8 @@ Pre-processing
 
 Processing techniques:
 ===================================================
-- subset mean and std columns
+- subset all columns with mean and std in their name
+- change variable names to more describtive names
 - join test and train data sets
 - summarized the data by taking the mean of each variable for subject and descriptionofactivity
 
